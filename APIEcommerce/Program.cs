@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using APIEcommerce.Infrastructure.Data;
 using APIEcommerce.Infrastructure.Repository.IRepository;
 using APIEcommerce.Infrastructure.Repository;
+using APIEcommerce.Infrastructure.Mappings;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +19,10 @@ option.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString"
 
 
 builder.Services.AddScoped<ICategory, CategoryRepository>();
+
+
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

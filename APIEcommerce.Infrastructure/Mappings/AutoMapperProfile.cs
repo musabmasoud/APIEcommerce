@@ -14,6 +14,8 @@ namespace APIEcommerce.Infrastructure.Mappings
         public AutoMapperProfile()
         {
             CreateMap<Category,CategoryDTO>().ReverseMap();
+            CreateMap<AddCategoryDTO,Category>().ReverseMap();
+            CreateMap<UpdateCategoryDTO,Category>().ReverseMap();
         }
     }
 }
