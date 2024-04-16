@@ -16,6 +16,9 @@ namespace APIEcommerce.Infrastructure.Mappings
             CreateMap<Category,CategoryDTO>().ReverseMap();
             CreateMap<AddCategoryDTO,Category>().ReverseMap();
             CreateMap<UpdateCategoryDTO,Category>().ReverseMap();
+
+            CreateMap<Product, ProductDTO>().ReverseMap();
+            CreateMap<AddProductDTO, Product>().ReverseMap();
         }
     }
 }

@@ -19,6 +19,7 @@ option.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString"
 
 
 builder.Services.AddScoped<ICategory, CategoryRepository>();
+builder.Services.AddScoped<IProduct, ProductRepository>();
 
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
