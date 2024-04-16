@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIEcommerce.Infrastructure.Migrations
 {
     [DbContext(typeof(APIEcommerceDbContext))]
-    [Migration("20240409002423_addModels")]
-    partial class addModels
+    [Migration("20240416161836_ConvertINTtoGuids")]
+    partial class ConvertINTtoGuids
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -156,7 +156,6 @@ namespace APIEcommerce.Infrastructure.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Model")
@@ -187,18 +186,14 @@ namespace APIEcommerce.Infrastructure.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("ProductId1")
+                    b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId1");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("ProductImages");
                 });
@@ -262,7 +257,7 @@ namespace APIEcommerce.Infrastructure.Migrations
                 {
                     b.HasOne("APIEcommerce.Domain.Models.Product", "Product")
                         .WithMany("ProductImages")
-                        .HasForeignKey("ProductId1")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

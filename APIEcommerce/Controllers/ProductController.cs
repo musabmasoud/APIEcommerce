@@ -33,10 +33,9 @@ namespace APIEcommerce.Controllers
         //public async Task<IActionResult> Create(AddProductDTO addProductDTO, [FromForm] List<IFormFile> files)
         {
             var productModel = mapper.Map<Product>(addProductDTO);
-            var product = new Product();
             if (files != null)
             {
-                foreach(IFormFile file in files)
+                foreach (IFormFile file in files)
                 {
                     var imageName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
                     var imagePath = Path.Combine("uploads", imageName);
@@ -48,7 +47,7 @@ namespace APIEcommerce.Controllers
 
                     var image = new ProductImage
                     {
-
+                        ImageUrl =imagePath,
                         ProductId = productModel.Id,
                     };
 
