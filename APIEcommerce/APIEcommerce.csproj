@@ -23,4 +23,8 @@
     <ProjectReference Include="..\APIEcommerce.Infrastructure\APIEcommerce.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="uploads\" />
+  </ItemGroup>
+
 </Project>

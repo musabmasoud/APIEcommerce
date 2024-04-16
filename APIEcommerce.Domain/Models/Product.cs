@@ -5,7 +5,7 @@ namespace APIEcommerce.Domain.Models
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
         public string Model { get; set; }
         public string Author { get; set; }
         public double Price { get; set; }
@@ -13,6 +13,7 @@ namespace APIEcommerce.Domain.Models
 
         public Guid CategoryId { get; set; }
         public Category Category { get; set; }
-        public List<ProductImage> ProductImages { get; set; }
+        public ICollection<ProductImage> ProductImages { get; set; }
+        //public virtual ICollection OrderImage Images { get; set; } = new List<OrderImage>();
     }
 }

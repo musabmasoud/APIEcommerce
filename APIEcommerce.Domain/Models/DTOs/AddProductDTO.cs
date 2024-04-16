@@ -19,6 +19,6 @@ namespace APIEcommerce.Domain.Models.DTOs
         public double OfferPrice { get; set; }
 
         public Guid CategoryId { get; set; }
-        public List<ProductImage> ProductImages { get; set; }
+        //public List<ProductImage> ProductImages { get; set; }
     }
 }
